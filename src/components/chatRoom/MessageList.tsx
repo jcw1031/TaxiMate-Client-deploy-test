@@ -1,9 +1,6 @@
+import { Container, SystemMessage, } from '@/components/chatRoom/chatRoom.style.ts';
 import MyMessageBox from '@/components/chatRoom/MyMessageBox.tsx';
 import OthersMessageBox from '@/components/chatRoom/OthersMessageBox.tsx';
-import {
-  Container,
-  SystemMessage,
-} from '@/components/chatRoom/chatRoom.style.ts';
 import { useLayoutEffect, useRef, useState } from 'react';
 
 interface testChat {
@@ -55,6 +52,16 @@ const MessageList = () => {
       return [...prevState, setMessage];
     });
   };
+  handleMessage({
+    _id: '1',
+    chat: '안녕하세요',
+    createdAt: '2021-09-21T14:00:00',
+    updatedAt: '2021-09-21T14:00:00',
+    user: {
+      id: '1',
+      name: '이준석'
+    }
+  });
 
   // useEffect(() => {
   //   socket.on('message', (message: testChat) => {
