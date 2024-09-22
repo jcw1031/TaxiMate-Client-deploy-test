@@ -1,4 +1,4 @@
-import { API_PATH, CLIENT_PATH, LocalAPI } from '@/constants/path.ts';
+import { API_PATH, CLIENT_PATH } from '@/constants/path.ts';
 
 const kakaoApiKey = import.meta.env.VITE_KAKAO_API;
 
@@ -50,7 +50,7 @@ export const getSearchList = async (query: string, x: string, y: string) => {
 export const getKakaoInga = async () => {
   try {
     await window.Kakao.Auth.authorize({
-      redirectUri: LocalAPI + CLIENT_PATH.LOGIN_LOADING,
+      redirectUri: CLIENT_PATH.LOGIN_LOADING,
     });
   } catch (error) {
     console.log(error);
