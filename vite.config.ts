@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 // import mkcert from 'vite-plugin-mkcert';
 
@@ -23,4 +23,7 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    target: 'esnext'
+  }
 });
