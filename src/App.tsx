@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { NavermapsProvider } from 'react-naver-maps';
+import { useGetRefreshAccessTokenQuery } from '@/api/localApi.ts';
+import client from '@/api/SocketTest.ts';
+import { setIsLogin } from '@/components/myProfile/userSlice.ts';
 
 //import { NextUIProvider } from '@nextui-org/system';
 import Router from '@/Router.tsx';
-import client from '@/api/SocketTest.ts';
-import { useGetRefreshAccessTokenQuery } from '@/api/localApi.ts';
-import { setIsLogin } from '@/components/myProfile/userSlice.ts';
 import GlobalStyle from '@/styles/GlobalStyle.ts';
+import { useEffect, useState } from 'react';
+import { NavermapsProvider } from 'react-naver-maps';
+import { useDispatch } from 'react-redux';
 
 const naverMapApi = import.meta.env.VITE_NAVER_MAP_API;
 const kakaoJsKey = import.meta.env.VITE_KAKAO_JS_KEY;
@@ -45,10 +45,8 @@ function App() {
 
   return (
     <NavermapsProvider ncpClientId={naverMapApi}>
-      {/*<NextUIProvider>*/}
       <GlobalStyle />
       <Router />
-      {/*</NextUIProvider>*/}
     </NavermapsProvider>
   );
 }
