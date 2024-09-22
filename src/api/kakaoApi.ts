@@ -50,7 +50,7 @@ export const getSearchList = async (query: string, x: string, y: string) => {
 export const getKakaoInga = async () => {
   try {
     await window.Kakao.Auth.authorize({
-      redirectUri: CLIENT_PATH.LOGIN_LOADING,
+      redirectUri: 'https://taxi-mate.like-knu.com' + CLIENT_PATH.LOGIN_LOADING,
     });
   } catch (error) {
     console.log(error);
