@@ -14,6 +14,7 @@ import { setIsLogin } from '@/components/myProfile/userSlice.ts';
 //export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 //새로 고침 시 accessToken 변수 초기화 => refresh토큰으로 재요청
+
 export let accessToken: string | null = null;
 
 const baseQuery = fetchBaseQuery({
