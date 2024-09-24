@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
 import { useLazyGetPostsQuery } from '@/api/localApi.ts';
+import KnuLogoIcon from '@/assets/icons/header/knu-logo-icon.svg?react';
+
+import TaxiIcon from '@/assets/icons/header/taxi-icon.svg?react';
+import Footer from '@/components/common/Layout/Footer';
 
 import Header from '@/components/common/Layout/Header';
 import { HeaderItem } from '@/components/common/Layout/Header/Header.style.ts';
-import Footer from '@/components/common/Layout/Footer';
-import Map from '@/components/Home/Map';
-import PostList from '@/components/Home/PostList';
-import { Main } from '@/components/Home/Map/Map.style.ts';
-import SearchBar from '@/components/Home/SearchBar';
-import ResearchButton from '@/components/Home/ResearchButton';
-import MoveCurrentLocation from '@/components/Home/MoveCurrentLocation';
-
-import TaxiIcon from '@/assets/icons/header/taxi-icon.svg?react';
-import KnuLogoIcon from '@/assets/icons/header/knu-logo-icon.svg?react';
-import getCurrentLocation from '@/utils/getCurrentlocation.ts';
 import LoadingIcon from '@/components/common/LoadingIcon';
+import Map from '@/components/Home/Map';
+import { Main } from '@/components/Home/Map/Map.style.ts';
+import MoveCurrentLocation from '@/components/Home/MoveCurrentLocation';
+import PostList from '@/components/Home/PostList';
+import ResearchButton from '@/components/Home/ResearchButton';
+import SearchBar from '@/components/Home/SearchBar';
+import getCurrentLocation from '@/utils/getCurrentlocation.ts';
+import { useEffect, useState } from 'react';
 
 const HomePage = () => {
   const [map, setMap] = useState<naver.maps.Map | null>(null);
@@ -61,7 +61,12 @@ const HomePage = () => {
           택시팟
           <TaxiIcon />
         </HeaderItem>
-        <KnuLogoIcon />
+        <button onClick={() => {
+          console.log('LikeKNU');
+          window.ReactNativeWebView.postMessage('LikeKNU');
+        }}>
+          <KnuLogoIcon />
+        </button>
       </Header>
       <Main>
         <SearchBar path={'/search'} />
