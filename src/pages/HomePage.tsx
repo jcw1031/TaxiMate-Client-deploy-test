@@ -63,7 +63,9 @@ const HomePage = () => {
         </HeaderItem>
         <button onClick={() => {
           console.log('LikeKNU');
-          window.ReactNativeWebView?.postMessage('LikeKNU');
+          if (window.ReactNativeWebView) {
+            window.ReactNativeWebView.postMessage('LikeKNU');
+          }
         }}>
           <KnuLogoIcon />
         </button>
