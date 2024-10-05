@@ -47,7 +47,7 @@ export interface ChatList {
     maxParticipants: number; // 최대 참여자 수
     currentParticipants: number; // 현재 참여자 수
   };
-  chat: Chat[];
+  chats: Chat[];
 }
 
 export interface GroupMessage {
