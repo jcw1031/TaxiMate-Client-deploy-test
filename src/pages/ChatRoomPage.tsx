@@ -1,36 +1,36 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { GroupMessage } from '@/types/chat.ts';
-import { CLIENT_PATH } from '@/constants/path.ts';
-import reformatDate from '@/utils/reformatDate.ts';
 import { useGetChatQuery, useGetProfileQuery } from '@/api/localApi.ts';
-import useInAppNotificationHandler from '@/hooks/useInAppNotificationHandler.ts';
 
-import Header from '@/components/common/Layout/Header';
-import DropDown from '@/components/common/DropDown.tsx';
-import { PostBody } from '@/components/common/PostListItem';
-import PeopleCountTag from '@/components/common/PeopleCountTag';
-import MessageList from '@/components/chatRoom/MessageList.tsx';
-import MessageInputBox from '@/components/chatRoom/MessageInputBox.tsx';
-import InAppNotification from '@/components/common/InAppNotification';
-import MyMessageBox from '@/components/chatRoom/MyMessageBox.tsx';
-import OthersMessageBox from '@/components/chatRoom/OthersMessageBox.tsx';
-
-import { BackButton } from '@/components/common/Layout/Header/Header.style.ts';
+import ArrowLeftIcon from '@/assets/icons/arrow-left-icon.svg?react';
+import ArrowRightIcon from '@/assets/icons/arrow-right-icon.svg?react';
 import {
   NotificationContainer,
   NotificationHeader,
   RoomTitle,
   SystemMessage,
 } from '@/components/chatRoom/chatRoom.style.ts';
+import MessageInputBox from '@/components/chatRoom/MessageInputBox.tsx';
+import MessageList from '@/components/chatRoom/MessageList.tsx';
+import MyMessageBox from '@/components/chatRoom/MyMessageBox.tsx';
+import OthersMessageBox from '@/components/chatRoom/OthersMessageBox.tsx';
+import DropDown from '@/components/common/DropDown.tsx';
+import InAppNotification from '@/components/common/InAppNotification';
 
-import ArrowLeftIcon from '@/assets/icons/arrow-left-icon.svg?react';
-import ArrowRightIcon from '@/assets/icons/arrow-right-icon.svg?react';
+import Header from '@/components/common/Layout/Header';
+
+import { BackButton } from '@/components/common/Layout/Header/Header.style.ts';
+import PeopleCountTag from '@/components/common/PeopleCountTag';
+import { PostBody } from '@/components/common/PostListItem';
+import { CLIENT_PATH } from '@/constants/path.ts';
+import useInAppNotificationHandler from '@/hooks/useInAppNotificationHandler.ts';
+import { GroupMessage } from '@/types/chat.ts';
+import reformatDate from '@/utils/reformatDate.ts';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ChatRoomPage = ({
-  sendMessage,
-  checkReceive,
-}: {
+                        sendMessage,
+                        checkReceive,
+                      }: {
   sendMessage: (partyId: string, message: string) => void;
   checkReceive: (partyId: string, chatId: string) => void;
 }) => {
@@ -100,7 +100,8 @@ const ChatRoomPage = ({
           }}
           createdAt={''}
           type={'MESSAGE'}
-        />
+          setShowNotification={() => {
+          }} />
       )}
       <Header>
         <BackButton onClick={() => navigate(-1)}>
@@ -108,7 +109,10 @@ const ChatRoomPage = ({
         </BackButton>
         <RoomTitle>{chatData.party.title}</RoomTitle>
         <DropDown
-          items={[{ name: '알림끄기', handler: () => {} }]}
+          items={[{
+            name: '알림끄기', handler: () => {
+            }
+          }]}
           danger={'나가기'}
         />
       </Header>
