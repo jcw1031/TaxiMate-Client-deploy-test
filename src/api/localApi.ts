@@ -1,16 +1,12 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { setIsLogin } from '@/components/myProfile/userSlice.ts';
 import { API_PATH } from '@/constants/path.ts';
-import { CreatePostRes, Post, PostDetail } from '@/types/post.ts';
 import { RegisterData } from '@/types';
+import { ChatList, ChatRoom } from '@/types/chat.ts';
+import { CreatePostRes, Post, PostDetail } from '@/types/post.ts';
 import { UserProfile } from '@/types/user.ts';
 
-import type {
-  BaseQueryFn,
-  FetchArgs,
-  FetchBaseQueryError,
-} from '@reduxjs/toolkit/query';
-import { setIsLogin } from '@/components/myProfile/userSlice.ts';
-import { ChatList, ChatRoom } from '@/types/chat.ts';
+import type { BaseQueryFn, FetchArgs, FetchBaseQueryError, } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 //export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -18,7 +14,7 @@ import { ChatList, ChatRoom } from '@/types/chat.ts';
 export let accessToken: string | null = null;
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: '/',
+  baseUrl: import.meta.env.VITE_API_BASE_URL,
   credentials: 'include',
   prepareHeaders: (headers) => {
     headers.set('Accept', 'application/json');

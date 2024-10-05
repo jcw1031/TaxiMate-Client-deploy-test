@@ -1,4 +1,4 @@
-export const LocalAPI = 'http://localhost:5173';
+export const LocalAPI = import.meta.env.VITE_HOST;
 
 export const API_PATH = {
   SEARCH: {
