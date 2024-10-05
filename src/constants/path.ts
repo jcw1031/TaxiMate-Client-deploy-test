@@ -1,4 +1,4 @@
-export const LocalAPI = 'http://localhost:5173';
+export const LocalAPI = import.meta.env.VITE_HOST;
 
 const SERVER_URL = import.meta.env.VITE_API_BASE_URL;
 
