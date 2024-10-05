@@ -14,7 +14,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export let accessToken: string | null = null;
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_BASE_URL,
+  baseUrl: '/',
   credentials: 'include',
   prepareHeaders: (headers) => {
     headers.set('Accept', 'application/json');
